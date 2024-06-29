@@ -1,0 +1,56 @@
+jsx
+import React, { useState } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+
+const App = () => {
+  const [selectedServices, setSelectedServices] = useState([]);
+  const services = [
+    { id: 1, name: "Limpeza de cabine" },
+    { id: 2, name: "Lavanderia" },
+    { id: 3, name: "Serviço de quarto" },
+  ];
+
+  const handleServiceSelection = (id) => {
+    const updatedSelectedServices = selectedServices.includes(id)
+      ? selectedServices.filter((service) => service !== id)
+      : [...selectedServices, id];
+    setSelectedServices(updatedSelectedServices);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Serviços de escala</Text>
+      {services.map((service) => (
+        <Button
+          key={service.id}
+          title={service.name}
+          onPress={() => handleServiceSelection(service.id)}
+        />
+      ))}
+      <Text style={styles.selectedServices}>
+        Serviços selecionados:{" "}
+        {selectedServices.length > 0
+          ? selectedServices.map((id) => services.find((s) => s.id === id).name).join(", ")
+          : "Nenhum serviço selecionado"}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  selectedServices: {
+    marginTop: 30,
+    fontSize: 18,
+  },
+});
+
+export default App;
