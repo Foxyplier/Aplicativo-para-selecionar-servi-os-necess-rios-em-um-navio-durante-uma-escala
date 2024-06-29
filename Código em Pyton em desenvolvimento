@@ -1,0 +1,44 @@
+python
+class Navio:
+    def __init__(self):
+        self.servicos = []
+    
+    def adicionar_servico(self, servico):
+        self.servicos.append(servico)
+    
+    def listar_servicos(self):
+        return self.servicos
+
+navio = Navio()
+
+while True:
+    print("Selecione um serviço necessário para o navio:")
+    print("1 - Abastecimento de combustível")
+    print("2 - Alimentação para tripulação")
+    print("3 - Manutenção mecânica")
+    print("4 - Limpeza do convés")
+    print("5 - Sair")
+
+    escolha = input("Digite o número do serviço ou '5' para sair: ")
+
+    if escolha == '5':
+        break
+    elif escolha in ['1', '2', '3', '4']:
+        servico = None
+        if escolha == '1':
+            servico = "Abastecimento de combustível"
+        elif escolha == '2':
+            servico = "Alimentação para tripulação"
+        elif escolha == '3':
+            servico = "Manutenção mecânica"
+        elif escolha == '4':
+            servico = "Limpeza do convés"
+        
+        navio.adicionar_servico(servico)
+        print(f"Serviço '{servico}' adicionado com sucesso!\n")
+    else:
+        print("Escolha inválida. Por favor, selecione novamente.\n")
+
+print("Serviços selecionados para o navio:")
+for servico in navio.listar_servicos():
+    print(servico)
