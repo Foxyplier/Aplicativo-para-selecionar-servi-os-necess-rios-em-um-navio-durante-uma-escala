@@ -1,4 +1,4 @@
-# Aplicativo-para-selecionar-servi-os-necess-rios-em-um-navio-durante-uma-escala
+# Aplicativo-para-selecionar-servicos-necessarios-em-um-navio-durante-uma-escala
 Olá, pessoal,
 Este é o meu projeto para a empresa que estou trabalhando atualmente.
 A empresa que estou trabalhando é uma agência marítima de navios petroleiros
